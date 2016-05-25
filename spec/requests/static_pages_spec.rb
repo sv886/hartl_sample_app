@@ -19,7 +19,7 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-    before { visit "/help" }
+    before { visit help_path }
 
     let(:heading)    { 'Help' }
     let(:page_title) { 'Help' }
@@ -28,7 +28,7 @@ describe "Static pages" do
  end
 
  describe "About page" do
-   before { visit "/about" }
+   before { visit about_path }
    let(:heading)    { 'About' }
    let(:page_title) { 'About Us' }
 
@@ -36,7 +36,7 @@ describe "Static pages" do
  end
 
  describe "Contact page" do
-   before { visit "/contact" }
+   before { visit contact_path }
    let(:heading)    { 'Contact' }
    let(:page_title) { 'Contact' }
 
@@ -44,7 +44,7 @@ describe "Static pages" do
  end
 
  it "should have the right links on the layout" do
-    visit '/'
+    visit root_path
     click_link "About"
     expect(page).to have_title(full_title('About Us'))
     click_link "Help"
